@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import css from './ContactForm.module.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { nanoid } from '@reduxjs/toolkit';
-import { addContact } from '../../redux/contacts/contactsSlice';
-import { selectContacts } from '../../redux/contacts/selectors';
+import { useDispatch } from 'react-redux';
+// import { nanoid } from '@reduxjs/toolkit';
+// import { addContact } from '../../redux/contacts/contactsSlice';
+// import { selectContacts } from '../../redux/contacts/selectors';
+import { addNewContacts } from '../../redux/operations';
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(selectContacts);
+  // const contacts = useSelector(selectContacts);
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
@@ -33,20 +34,21 @@ export const ContactForm = () => {
 
     const contactData = { name, number };
 
-    const alreadyExist = contacts.some(
-      contact => contact.name.toLowerCase() === contactData.name.toLowerCase()
-    );
+    // const alreadyExist = contacts.some(
+    //   contact => contact.name.toLowerCase() === contactData.name.toLowerCase()
+    // );
 
-    if (alreadyExist) {
-      alert(`${contactData.name} is already in contacts.`);
-      return;
-    }
-    const newContact = {
-      ...contactData,
-      id: nanoid(),
-    };
+    // if (alreadyExist) {
+    //   alert(`${contactData.name} is already in contacts.`);
+    //   return;
+    // }
+    // const newContact = {
+    //   ...contactData,
+    //   id: nanoid(),
+    // };
 
-    dispatch(addContact(newContact));
+    // dispatch(addContact(newContact));
+    dispatch(addNewContacts(contactData));
 
     setName('');
     setNumber('');
