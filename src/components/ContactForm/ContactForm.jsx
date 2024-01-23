@@ -10,7 +10,7 @@ export const ContactForm = () => {
   const dispatch = useDispatch();
   // const contacts = useSelector(selectContacts);
   const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
+  const [phone, setNumber] = useState('');
 
   const handleChange = e => {
     const { name, value } = e.currentTarget;
@@ -20,7 +20,7 @@ export const ContactForm = () => {
         setName(value);
         break;
 
-      case 'number':
+      case 'phone':
         setNumber(value);
         break;
 
@@ -32,7 +32,7 @@ export const ContactForm = () => {
   const handleAddContact = evt => {
     evt.preventDefault();
 
-    const contactData = { name, number };
+    const contactData = { name, phone };
 
     // const alreadyExist = contacts.some(
     //   contact => contact.name.toLowerCase() === contactData.name.toLowerCase()
@@ -73,9 +73,9 @@ export const ContactForm = () => {
         <input
           onChange={handleChange}
           type="tel"
-          name="number"
+          name="phone"
           autoComplete="on"
-          value={number}
+          value={phone}
           required
         />
       </label>

@@ -24,9 +24,8 @@ export const addContact = createAsyncThunk(
     try {
       const response = await axios.post(
         'https://65afa1fb2f26c3f2139b514c.mockapi.io/phonebook/contacts',
-        { data }
+        { ...data }
       );
-
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
