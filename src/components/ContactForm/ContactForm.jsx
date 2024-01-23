@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 // import { nanoid } from '@reduxjs/toolkit';
 // import { addContact } from '../../redux/contacts/contactsSlice';
 // import { selectContacts } from '../../redux/contacts/selectors';
-import { addNewContacts } from '../../redux/operations';
+import { addContact } from '../../redux/operations';
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
@@ -48,7 +48,7 @@ export const ContactForm = () => {
     // };
 
     // dispatch(addContact(newContact));
-    dispatch(addNewContacts(contactData));
+    dispatch(addContact(contactData));
 
     setName('');
     setNumber('');

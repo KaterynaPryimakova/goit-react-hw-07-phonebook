@@ -26,7 +26,6 @@ const getFilteredContacts = (contacts, filter) => {
 export const ContactList = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
-  console.log(contacts);
   const filter = useSelector(selectFilter);
   const isLoading = useSelector(selectisLoading);
   const error = useSelector(selectError);
@@ -39,7 +38,7 @@ export const ContactList = () => {
 
   return (
     <>
-      {isLoading && <p>Loading tasks...</p>}
+      {isLoading && <p>Loading...</p>}
 
       {error && <p>{error}</p>}
 
@@ -50,8 +49,8 @@ export const ContactList = () => {
       )} */}
       {contacts && contacts.length > 0 && (
         <ul className={css.list}>
-          {filteredContacts.map(({ name, number, id }) => {
-            return <ContactItem name={name} number={number} id={id} key={id} />;
+          {filteredContacts.map(({ name, phone, id }) => {
+            return <ContactItem name={name} number={phone} id={id} key={id} />;
           })}
         </ul>
       )}
