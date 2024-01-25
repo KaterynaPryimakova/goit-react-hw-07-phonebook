@@ -63,14 +63,6 @@ const contactsSlice = createSlice({
   },
 
   reducers: {
-    // addContact(state, action) {
-    //   state.contacts.push(action.payload);
-    // },
-    // deleteContact(state, action) {
-    //   state.contacts = state.contacts.filter(
-    //     contact => contact.id !== action.payload
-    //   );
-    // },
     setFilter(state, action) {
       state.filter = action.payload;
     },
@@ -78,5 +70,4 @@ const contactsSlice = createSlice({
 });
 
 export const { setFilter } = contactsSlice.actions;
-
 export const contactsReducer = contactsSlice.reducer;
